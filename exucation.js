@@ -1,81 +1,125 @@
-var firstNumber = "25";
-var lastNumber = " 75";
-var number = parseInt(firstNumber) + parseInt(lastNumber);
+var shop ="sport shop";
+console.log("shop:"+shop);
+var firstMessage="cricket bat";
+var lastMessage=" cricket ball";
+var reply=firstMessage+lastMessage;
 
-var data = {
-    message: "Number: " + number
-};
-
-function getnumber() {
-    console.log(data);
-}
-
-getnumber();
-
-
-//Global Execution Context
-
-//Creation Phase
-
-GEC{
-    LEC{
-        ER{
-           declaration:
-               firstNumber:undefined;
-               lastNumber:undefined;
-        }
-        outer:null;
-        this:window Object;
+function getContactName() {
+    console.log("Reply:" +reply);
     }
-    VE{
-        ER{
-            declaration:
-                message:undefined;
-        }
-    }
-}
-//Execution Phase
+ getContactName();
 
-GEC{
-    LEC{
-        ER{
-           declaration:
-               firstNumber:"25";
-               lastNumber:"75";
-        }
-        outer:null;
-        this:window Object;
-    }
-    VE{
-        ER{
-            declaration:
-                 message:firstNumber+lastNumber;
-        }
-    }
-}
 
-//Function Execution Context
+// ///Global execution context (GEC)
 
-//Creation Phase
+// // Creation Phase 
+ 
+globalExecutionContext: {
+    LexicalEnvironment: {
+      EnvironmentRecord:  {
+         type: "declarative",
+          firstname: undefined,
+          lastname: undefined,
+      }
 
-GEC{
-    LEC{
-        ER{
-            declaration:
-                 message:undefined;
-        }
-        outer:GEC;
-        this.getMessage;
-    }
-}
+      outer:"null"
+      ThisBinding: "global object or window object"
+       },
+       VariableEnvironment: {
+         EnvironmentRecord:  {
+            type: "object",
+             fullname: undefined,
+             
+           }
 
-//Execution Phase
 
-GEC{
-    LEC{
-        ER{
-            declaration:
-                  message: 100 ;
-        }
-    }
-}
+       outer:"null"
+            ThisBinding: "global object or window object"
+             },
+
+         }
+    
+//   // Execution phase
+
+globalExecutionContext: {
+    LexicalEnvironment: {
+      EnvironmentRecord:  {
+         type: "object",
+          firstname: 'cricket bat',
+          lastname: 'cricket ball',
+        
+        },
+      
+        outer:"null"
+                  ThisBinding: "global object or window object"
+                   },
+                   VariableEnvironment: {
+                     EnvironmentRecord:  {
+                        type: "object",
+                        fullname = 'firstname+lastname',
+                         
+                       }
+                  
+                       outer:"null"
+                     ThisBinding: "global object or window object"
+                      }
+         
+                  }
+
+
+// ///     Function execution context (FEC)
+
+    // // Creation Phase 
+
+    FunctionExecutionContext: {
+        LexicalEnvironment: {
+          EnvironmentRecord:  {
+             type: "declarative",
+              firstmessage: undefined,
+              lastmessage: undefined,
+            
+            }
+          
+            outer:"Global Execution context"
+            ThisBinding: getdata()
+             },
+             VariableEnvironment: {
+               EnvironmentRecord:  {
+                  type: "object",
+              
+                   
+                 }
+            
+                 outer:"Global Execution context"
+             ThisBinding: getdata()
+              },
+ 
+          }
+     
+
+               // // Execution phase 
+ 
+           
+         FunctionExecutionContext: {
+            LexicalEnvironment: {
+              EnvironmentRecord:  {
+                 type: "declarative",
+                firstmessage: 'cricket bat',
+                secondmessage: 'cricket ball',
+          
+                },
+              
+              outer:"Global Execution context"
+              ThisBinding: getdata()
+               },
+               VariableEnvironment: {
+                 EnvironmentRecord:  {
+                    type: "object",
+                     
+                   }
+                 
+                 outer:"Global Execution context"
+                 ThisBinding: getdata()
+                  }
+     
+              }
