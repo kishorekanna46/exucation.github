@@ -4,7 +4,7 @@ var firstMessage="cricket bat";
 var lastMessage=" cricket ball";
 var reply=firstMessage+lastMessage;
 
-function getContactName() {
+function getdata() {
     console.log("Reply:" +reply);
     }
  getContactName();
